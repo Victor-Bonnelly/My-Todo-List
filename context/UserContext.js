@@ -1,9 +1,9 @@
 import React, { createContext, useState } from 'react';
 
-// Créer le contexte
+
 export const UserContext = createContext();
 
-// Créer un fournisseur de contexte
+
 export const UserProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [message, setMessage] = useState("");
@@ -23,7 +23,7 @@ export const UserProvider = ({ children }) => {
             console.error('Erreur lors de l\'enregistrement:', error);
         } else {
             const data = await response.json();
-            setUser(data.user); // Assurez-vous que votre backend renvoie l'utilisateur
+            setUser(data.user); 
             setMessage('Utilisateur enregistré avec succès');
             console.log('Réponse du serveur:', data);
         }

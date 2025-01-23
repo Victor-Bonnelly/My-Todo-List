@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import express from 'express'; // Importer express pour créer le routeur
+import express from 'express'; 
 
 const userSchema = new mongoose.Schema({
   email: {
@@ -16,19 +16,19 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-// Ajout d'une méthode pour vérifier le mot de passe (exemple)
+
 userSchema.methods.verifyPassword = function(password) {
-  // Logique pour vérifier le mot de passe
-  return this.password === password; // Remplacez par une vraie vérification
+ 
+  return this.password === password; 
 };
 
-// Création d'un routeur pour les utilisateurs
+
 const router = express.Router();
 
-// Route pour l'enregistrement des utilisateurs
+
 router.post('/register', async (req, res) => {
   const { email, password } = req.body;
-  console.log('Données reçues pour l\'enregistrement dans userSchema:', req.body); // Log des données reçues
+  console.log('Données reçues pour l\'enregistrement dans userSchema:', req.body);
   try {
     const newUser = new User({ email, password });
     await newUser.save();
@@ -38,8 +38,8 @@ router.post('/register', async (req, res) => {
   }
 });
 
-// Exporter le routeur
+
 export default router;
 
-// Exporter le schéma
+
 export { userSchema }; 
